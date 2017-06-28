@@ -8,6 +8,7 @@ import (
 )
 
 func l() {
+	log.SetOutput(os.Stdout)
 	hostname, _ := os.Hostname()
 	host := "[" + hostname + "] "
 	multiline := ""
@@ -17,6 +18,8 @@ func l() {
 	}
 	multiline += host + "end of multiline"
 	log.Println(multiline)
+	log.SetOutput(os.Stderr)
+	log.Println("this is an error message")
 }
 
 func main() {
